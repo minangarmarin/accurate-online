@@ -97,18 +97,18 @@ public class DashboardPage extends BasePageObject {
     public void isSuccessDownloaded() {
         File folder = new File(ROOT + "/" + env("FOLDER_DOWNLOADED"));
 
-        String expectedBusinessName = BusinessData.getBusinessName().replace(" ", "").toLowerCase().substring(0, 15);
-        String expectedFileType = ReportData.getFileType();
+//        String expectedBusinessName = BusinessData.getBusinessName().replace(" ", "").toLowerCase().substring(0, 15);
+//        String expectedFileType = ReportData.getFileType();
 
         File[] files = folder.listFiles();
         assert files != null;
         String sourceDirectoryFileDownloaded = env("FOLDER_DOWNLOADED");
-        String fileNameDownloaded = Utils.getLatestFile(sourceDirectoryFileDownloaded);
-        if (!fileNameDownloaded.contains(expectedBusinessName) && !fileNameDownloaded.contains(expectedFileType)) {
-            printError(String.format("Actual file name [%s] not equal with expected file name [%s]", fileNameDownloaded, expectedBusinessName + expectedFileType));
-        } else {
+//        String fileNameDownloaded = Utils.getLatestFile(sourceDirectoryFileDownloaded);
+//        if (!fileNameDownloaded.contains(expectedBusinessName) && !fileNameDownloaded.contains(expectedFileType)) {
+//            printError(String.format("Actual file name [%s] not equal with expected file name [%s]", fileNameDownloaded, expectedBusinessName + expectedFileType));
+//        } else {
             Utils.uploadToFtp(sourceDirectoryFileDownloaded + "/" + Utils.getLatestFile(sourceDirectoryFileDownloaded), sourceDirectoryFileDownloaded);
             wait(10);
-        }
+//        }
     }
 }

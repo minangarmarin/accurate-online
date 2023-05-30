@@ -1,16 +1,20 @@
 package accurate.hooks;
 
 import aut.accurate.utils.Constants;
+import aut.accurate.utils.Utils;
 import aut.accurate.webdriver.WebDriverInstance;
+import com.google.common.util.concurrent.UncheckedTimeoutException;
 import com.google.gson.JsonObject;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
 
+import static aut.accurate.utils.Constants.ROOT;
 import static aut.accurate.utils.Utils.env;
 import static aut.accurate.utils.Utils.loadElementProperties;
 import static io.restassured.RestAssured.given;
@@ -45,7 +49,7 @@ public class WebDriveHooks {
 
     public void sendReportToSlack(String errorMessage) {
         JsonObject payload = new JsonObject();
-        payload.addProperty("text", errorMessage);
+        payload.addProperty("text", errorMessage + "\nLink Report: <http://nas.dbo.id:8080/automation/result.html|Cucumber Report>");
 
         given()
                 .header("Content-Type", "application/json")

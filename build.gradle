@@ -25,9 +25,20 @@ dependencies {
     implementation 'org.apache.poi:poi:5.1.0'
     implementation 'org.apache.poi:poi-ooxml:5.1.0'
     implementation 'commons-net:commons-net:3.9.0'
+    implementation 'org.apache.jackrabbit:jackrabbit-webdav:2.21.16'
+    implementation 'commons-httpclient:commons-httpclient:3.1'
 
 }
 
 test {
     useJUnitPlatform()
+}
+
+task runAfterTest(){
+    doLast {
+        javaexec {
+            main = 'aut.accurate.utils.AfterTest'
+            classpath = sourceSets.main.runtimeClasspath
+        }
+    }
 }

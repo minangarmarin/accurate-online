@@ -1,3 +1,5 @@
+aut/accurate/utils/AfterTest.java
+ aut.accurate.utils.AfterTest
 aut/accurate/base/BasePageObject.java
  aut.accurate.base.BasePageObject
 aut/accurate/utils/Utils.java
