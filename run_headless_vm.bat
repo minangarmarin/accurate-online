@@ -1,3 +1,3 @@
 @echo off
-cd "C:\Arief\Hijra\Automation\DBO\Freelance\fix\accurate-automation"
+cd "C:\git\data-transfer-automation-export-stock"
 run_minimized.vbs run.bat

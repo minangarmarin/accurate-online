@@ -8,6 +8,8 @@ import aut.accurate.utils.Utils;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import org.openqa.selenium.Keys;
+
 
 import static aut.accurate.utils.Constants.ROOT;
 import static aut.accurate.utils.Utils.*;
@@ -48,34 +50,41 @@ public class DashboardPage extends BasePageObject {
     }
 
     public void setReportDate() {
-        String dateFromExcel = readExcel("/data/accurate-data", "DATE");
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
-        LocalDate currentDate = LocalDate.now();
-        LocalDate reportDate = Utils.calculateYesterday(currentDate, 1);
-        LocalDate calculateYesterdayDate = Utils.calculateYesterday(currentDate, Integer.parseInt(dateFromExcel));
-
-        String formattedReportDate = reportDate.format(formatter);
-        String formattedCalculateYesterdayDate = calculateYesterdayDate.format(formatter);
-
-        String elementStartDate = "FIELD_REPORT_START_DATE";
-        String elementEndDate = "FIELD_REPORT_END_DATE";
-
-        // Input start date
-        clickOn(elementStartDate);
+        String gudang = "GD. JAKARTA";
         wait(2);
-        typeOn(elementStartDate, formattedCalculateYesterdayDate);
-        clickOn(elementStartDate);
+        typeOn("FIELD_GUDANG", gudang + (Keys.ENTER));
+        
 
-        // input end date
-        clickOn(elementEndDate);
-        wait(2);
-        typeOn(elementEndDate, formattedReportDate);
-        clickOn(elementEndDate);
+        // String dateFromExcel = readExcel("/data/accurate-data", "DATE");
+
+        // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+        // LocalDate currentDate = LocalDate.now();
+        // LocalDate reportDate = Utils.calculateYesterday(currentDate, 1);
+        // LocalDate calculateYesterdayDate = Utils.calculateYesterday(currentDate, Integer.parseInt(dateFromExcel));
+
+        // String formattedReportDate = reportDate.format(formatter);
+        // String formattedCalculateYesterdayDate = calculateYesterdayDate.format(formatter);
+
+        // String elementStartDate = "FIELD_REPORT_START_DATE";
+        // String elementEndDate = "FIELD_REPORT_END_DATE";
+
+        // // Input start date
+        // clickOn(elementStartDate);
+        // wait(2);
+        // typeOn(elementStartDate, formattedCalculateYesterdayDate);
+        // clickOn(elementStartDate);
+
+        // // input end date
+        // clickOn(elementEndDate);
+        // wait(2);
+        // typeOn(elementEndDate, formattedReportDate);
+        // clickOn(elementEndDate);
     }
 
     public void clickShowReportButton() {
         clickOn("BUTTON_SHOW_REPORT");
+        wait(20);
+
     }
 
     public void isValidBusinessNameReport() {

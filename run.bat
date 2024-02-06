@@ -1,3 +1,3 @@
 @echo off
-"cmd" /K "cd C:\Arief\Hijra\Automation\DBO\Freelance\Web\minang\accurate-online && .\gradlew clean test && .\gradlew runAfterTest"
+"cmd" /K "cd C:\git\data-transfer-automation-export-stock && .\gradlew clean test && .\gradlew runAfterTest"
 timeout /t 5 > nul

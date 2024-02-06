@@ -13,10 +13,12 @@ public class ManageBusinessPage extends BasePageObject {
 
         getBusinessName();
 
+
         clickOn("CARD_BUSINESS_DATA");
 
         // Switch to dashboard page menu tab
         switchBrowserTab(1);
+        wait(20);
 
         // Verify dashboard toolbar menu is present
         DashboardPage dashboardPage = new DashboardPage();
